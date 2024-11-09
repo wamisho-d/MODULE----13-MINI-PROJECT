@@ -1,0 +1,35 @@
+openapi: 3.0.0
+info:
+  title: E-Commerce API
+  version: 1.0.0
+paths:
+  /customer:
+    post:
+      summary: Create a new customer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                phone_number:
+                  type: string
+      responses:
+        '201':
+          description: Customer created
+  /customer/{customer_id}:
+    get:
+      summary: Get a customer by ID
+      parameters:
+        - name: customer_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Customer details
